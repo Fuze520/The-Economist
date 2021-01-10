@@ -1,0 +1,635 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Where have all the toilets gone?</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="8f020b47-d214-4f72-aead-d1de16ead9ac" class="page sans"><header><h1 class="page-title">Where have all the toilets gone?</h1><table class="properties"><tbody><tr class="property-row property-row-date"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesDate"><path d="M10.8889,5.5 L3.11111,5.5 L3.11111,7.05556 L10.8889,7.05556 L10.8889,5.5 Z M12.4444,1.05556 L11.6667,1.05556 L11.6667,0 L10.1111,0 L10.1111,1.05556 L3.88889,1.05556 L3.88889,0 L2.33333,0 L2.33333,1.05556 L1.55556,1.05556 C0.692222,1.05556 0.00777777,1.75556 0.00777777,2.61111 L0,12.5 C0,13.3556 0.692222,14 1.55556,14 L12.4444,14 C13.3,14 14,13.3556 14,12.5 L14,2.61111 C14,1.75556 13.3,1.05556 12.4444,1.05556 Z M12.4444,12.5 L1.55556,12.5 L1.55556,3.94444 L12.4444,3.94444 L12.4444,12.5 Z M8.55556,8.61111 L3.11111,8.61111 L3.11111,10.1667 L8.55556,10.1667 L8.55556,8.61111 Z"></path></svg></span>Created Date</th><td><time>@Jan 10, 2021</time></td></tr><tr class="property-row property-row-url"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesUrl"><path d="M3.73333,3.86667 L7.46667,3.86667 C8.49613,3.86667 9.33333,4.70387 9.33333,5.73333 C9.33333,6.7628 8.49613,7.6 7.46667,7.6 L6.53333,7.6 C6.01813,7.6 5.6,8.0186 5.6,8.53333 C5.6,9.04807 6.01813,9.46667 6.53333,9.46667 L7.46667,9.46667 C9.5284,9.46667 11.2,7.79507 11.2,5.73333 C11.2,3.6716 9.5284,2 7.46667,2 L3.73333,2 C1.6716,2 0,3.6716 0,5.73333 C0,7.124 0.762067,8.33453 1.88953,8.97713 C1.87553,8.83107 1.86667,8.6836 1.86667,8.53333 C1.86667,7.92013 1.98753,7.33447 2.2036,6.7978 C1.99267,6.4954 1.86667,6.12953 1.86667,5.73333 C1.86667,4.70387 2.70387,3.86667 3.73333,3.86667 Z M12.1095,5.28907 C12.1231,5.4356 12.1333,5.58307 12.1333,5.73333 C12.1333,6.34607 12.0101,6.9294 11.7931,7.46513 C12.0059,7.768 12.1333,8.13573 12.1333,8.53333 C12.1333,9.5628 11.2961,10.4 10.2667,10.4 L6.53333,10.4 C5.50387,10.4 4.66667,9.5628 4.66667,8.53333 C4.66667,7.50387 5.50387,6.66667 6.53333,6.66667 L7.46667,6.66667 C7.98187,6.66667 8.4,6.24807 8.4,5.73333 C8.4,5.2186 7.98187,4.8 7.46667,4.8 L6.53333,4.8 C4.4716,4.8 2.8,6.4716 2.8,8.53333 C2.8,10.59507 4.4716,12.2667 6.53333,12.2667 L10.2667,12.2667 C12.3284,12.2667 14,10.59507 14,8.53333 C14,7.14267 13.2375,5.93167 12.1095,5.28907 Z"></path></svg></span>Link</th><td><a href="https://mp.weixin.qq.com/s/1J6dqdD5HqnI2OahLDUfFg" class="url-value">https://mp.weixin.qq.com/s/1J6dqdD5HqnI2OahLDUfFg</a></td></tr><tr class="property-row property-row-person"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesPerson"><path d="M9.625,10.8465 C8.91187,10.2891 8.12088,9.926 7,9.26013 L7,8.71938 C7.21175,8.47612 7.392,8.176 7.53813,7.83213 C7.94587,7.7315 8.3125,7.33425 8.3125,7 C8.3125,6.51788 8.1095,6.32713 7.8715,6.17137 C7.8715,6.15562 7.875,6.14162 7.875,6.125 C7.875,5.41362 7.4375,3.5 5.25,3.5 C3.0625,3.5 2.625,5.4145 2.625,6.125 C2.625,6.14162 2.6285,6.15562 2.6285,6.17137 C2.3905,6.32713 2.1875,6.51788 2.1875,7 C2.1875,7.33425 2.55413,7.7315 2.96187,7.833 C3.108,8.176 3.28825,8.47612 3.5,8.71938 L3.5,9.26013 C2.37912,9.92513 1.58812,10.2882 0.875,10.8465 C0.041125,11.4984 0,12.4688 0,14 L10.5,14 C10.5,12.4688 10.4589,11.4984 9.625,10.8465 Z M13.125,7.3465 C12.4119,6.78912 11.6209,6.426 10.5,5.76013 L10.5,5.21938 C10.7118,4.97613 10.892,4.676 11.0381,4.33213 C11.4459,4.2315 11.8125,3.83425 11.8125,3.5 C11.8125,3.01787 11.6095,2.82713 11.3715,2.67138 C11.3715,2.65562 11.375,2.64162 11.375,2.625 C11.375,1.91363 10.9375,0 8.75,0 C6.5625,0 6.125,1.9145 6.125,2.625 C6.125,2.64162 6.1285,2.65562 6.1285,2.67138 C6.11188,2.68275 6.09787,2.69588 6.08125,2.70725 C7.83212,3.066 8.59688,4.54825 8.72813,5.74787 C8.97575,6.00863 9.1875,6.39625 9.1875,7 C9.1875,7.60288 8.771,8.20312 8.18388,8.51462 C8.127,8.624 8.06662,8.729 8.00275,8.82962 C8.155,8.91537 8.30025,8.99675 8.44025,9.07463 C9.08075,9.4325 9.63375,9.74137 10.164,10.1561 C10.3022,10.2638 10.4204,10.3801 10.5289,10.4991 L14,10.4991 C14,8.96875 13.9589,7.99837 13.125,7.3465 Z"></path></svg></span>Reader</th><td><span class="user"><img src="https://lh3.googleusercontent.com/-PsejGJ2faMA/AAAAAAAAAAI/AAAAAAAAAAA/AMZuuckA415OZy-RsO00_kcF3kupJano_A/photo.jpg" class="icon user-icon"/>Ze Fu</span></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>Score / 5</th><td><span class="selected-value select-value-color-default">⭐️⭐️⭐️</span></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>Status</th><td><span class="selected-value select-value-color-blue">Finished</span></td></tr></tbody></table></header><div class="page-body"><div id="8d35ff0c-e9f2-4330-a015-b05086e48e4b" class="column-list"><div id="027f8b04-23bb-46f0-91e2-0098ae202fd8" style="width:33.333333333333336%" class="column"><h2 id="810be09c-8782-423b-85b7-764e979e518f" class=""><strong>The urinal is political</strong></h2></div><div id="c795b659-21f4-48a5-8b93-6cb76788080a" style="width:33.333333333333336%" class="column"><ul id="d123bb17-85dd-4392-9ef1-15fb2047033b" class="toggle"><li><details open=""><summary>urinal</summary><p id="4205d35a-f917-49d8-b449-f7a8a0a27be1" class="">小便池、男厕所、尿壶
+urine 尿</p></details></li></ul></div><div id="6596d589-ef1e-4fff-8e80-aa4c08fe538b" style="width:33.33333333333333%" class="column"><p id="8bd6818a-be43-4b41-83d2-8e8f190cd868" class="">
+</p></div></div><h3 id="6c81c2be-0c83-404d-a82f-852dd1d52858" class="">Long time passing</h3><div id="855af9e8-f5ea-4ea8-8b49-9ee04ca2f082" class="column-list"><div id="ea72dbbe-cee3-4e3a-95f9-72e31a795b13" style="width:33.333333333333336%" class="column"><p id="8f413ef3-0b50-4365-8e25-473e76a248e5" class="">YESTERDAY’S <strong><mark class="highlight-red">OUTRAGE</mark></strong> often slips away quietly. In 2016 a North Carolina law requiring <strong><mark class="highlight-red">transgender(ed)</mark></strong><strong> people</strong> to use the toilet of their birth sex <mark class="highlight-blue"><strong>upset the nation’s stomach</strong></mark>. Companies <strong><mark class="highlight-blue">pulled out</mark></strong> of <mark class="highlight-red"><strong>ventures</strong></mark> in the state, sports leagues called off games and rock stars cancelled concerts. The law was <strong><mark class="highlight-red">repealed</mark></strong> and replaced with one which prevented state and local agencies from regulating who uses which toilet in public buildings, but <strong><mark class="highlight-red">bar</mark></strong>red local governments from passing non-discrimination laws blocking private businesses from doing the same. On December 1st that ban expired, meaning that local governments in North Carolina can <mark class="highlight-blue"><strong>enact legislation</strong></mark> to prevent discrimination against <strong><mark class="highlight-red">LGBT</mark></strong> people.</p></div><div id="6dcf1562-5464-4432-ab6c-e1dd2299ef35" style="width:33.333333333333336%" class="column"><ul id="92d2114e-6cea-47ae-9d83-e3519590961c" class="toggle"><li><details open=""><summary>outrage</summary><p id="e41fa813-94e2-4bbf-9a1a-113fae5f33e2" class="">a feeling of anger and shock
+愤慨，义愤</p></details></li></ul><ul id="1c5c7695-ab00-45c2-8722-f3bcea2fc0c6" class="toggle"><li><details open=""><summary>transgender(ed) people</summary><p id="92ccce37-91de-4f56-a71d-24d3ce91198f" class="">变形人</p></details></li></ul><ul id="b261d1e7-39c4-472e-a1a0-a904f9cb8dbd" class="toggle"><li><details open=""><summary>venture</summary><p id="33122456-4276-4169-a304-a16548295a1c" class="">冒险</p></details></li></ul><ul id="8c8ddffc-6364-47e1-98d3-71c41ef5c45a" class="toggle"><li><details open=""><summary>repeal</summary><p id="76490657-9844-4a47-8f11-bbabc01101ea" class="">If a government repeals a law, it causes that law no longer to have any legal force.
+废除，废止，撤销（法律）</p></details></li></ul><ul id="7d0db0c3-3020-4a4e-a085-d0ccab36f81b" class="toggle"><li><details open=""><summary>bar … from …</summary><p id="5c51b143-d1c0-4ff0-85d3-f264f77a33b3" class="">bar 除了有酒吧的意思，还有禁止的意思</p></details></li></ul></div><div id="a6c7ae97-d571-4921-b51e-a4dd44c40b0b" style="width:33.33333333333333%" class="column"><ul id="a4315c63-cb50-4b0f-a033-3ec5882c904a" class="toggle"><li><details open=""><summary>upset the nation&#x27;s stomach</summary><p id="18071957-5b3c-4145-aa5d-5e7029e582bf" class="">让全国人民感到不安</p></details></li></ul><ul id="a6e806db-971b-4f44-96d0-8a6557346f73" class="toggle"><li><details open=""><summary>pull out</summary><p id="5605f023-a45b-4724-aa71-da7dc3ecf99b" class="">退出</p></details></li></ul><ul id="8b6c14a2-31d6-420b-9261-5af1782d4602" class="toggle"><li><details open=""><summary>enact legislation</summary><p id="435a144e-dfe3-4d6c-9225-32a7b92d9b81" class="">颁布法令</p></details></li></ul></div></div><blockquote id="2aa17f71-59d9-4061-b28d-2c9a23ab2deb" class=""><mark class="highlight-red"><strong>LGBT</strong></mark>是女同性恋者（Lesbian）、男同性恋者（Gay）、双性恋者（Bisexual）与跨性別者（Transgender）的英文首字母缩略字。</blockquote><hr id="89b8ec41-48e6-4711-9b93-809a0dc89e54"/><div id="2dc12ceb-f4a5-48dd-9cbb-fc24f84da71a" class="column-list"><div id="a2266f5b-5e5c-40ca-b964-2e26faa5cfee" style="width:33.333333333333336%" class="column"><p id="5daba795-af5e-4e48-b20e-bbc5c58e6e74" class="">Thus closes another chapter in the politics of the toilet. The story is a long one. In the 1950s and 60s <mark class="highlight-red"><strong>civil-rights</strong></mark> <mark class="highlight-red"><strong>protesters</strong></mark> <mark class="highlight-red"><strong>decried</strong></mark> “whites only” <strong><mark class="highlight-red">latrines</mark></strong>. An Oakland <mark class="highlight-red"><strong>assemblywoman</strong></mark>, Margaret Fong Eu, took a sledgehammer to a toilet wrapped in chains outside the state capitol in 1969 to protest against pay toilets in public buildings, arguing that they placed an <mark class="highlight-blue"><strong>undue burden</strong></mark> on women because urinals were often free. Activists poured fake urine over the steps of Harvard’s Lowell Hall in 1973 demanding “potty parity”, the equitable distribution of male and female toilets. <mark class="highlight-blue"><strong>Grab bars</strong></mark> in bathrooms were among the demands of the disability protesters who occupied a federal building in San Francisco for 26 days in 1977.</p></div><div id="c2ab5047-0303-4057-a2e4-dee83315e262" style="width:33.333333333333336%" class="column"><ul id="57074ef9-bc63-4b64-88ae-fe5f7d7cb95b" class="toggle"><li><details open=""><summary>civil-rights</summary><p id="d6bec6f4-a8a6-42be-a5f5-7fd2ac4ffb86" class="">公民权</p></details></li></ul><ul id="424a776f-9561-4748-8b17-c41662171936" class="toggle"><li><details open=""><summary>protester</summary><p id="dae30ea3-0113-4fdc-950b-cd65a9da085e" class="">抗议者 / protest v.</p></details></li></ul><ul id="eb1c1bb2-ba73-4cdf-b428-4de0d5d12e77" class="toggle"><li><details open=""><summary>decry</summary><p id="e1c78bb0-4f22-49c9-bc65-ff0f5e050962" class="">谴责</p></details></li></ul><ul id="3f783dcb-54aa-4ef3-b54b-b283ce6fc62b" class="toggle"><li><details open=""><summary>latrine</summary><p id="0442d435-bbb5-4af9-a38d-27b1cb82018b" class="">公告厕所</p></details></li></ul><ul id="6b62d7e7-766b-4d3c-8e3e-d79b6ef5c01e" class="toggle"><li><details open=""><summary>assemblywoman</summary><p id="4a77461a-e81b-4e53-95b3-3d2c9eb0295f" class="">（美国的）州众议院女议员</p></details></li></ul></div><div id="4beed198-07a9-4373-981a-6c6519f9eefe" style="width:33.33333333333333%" class="column"><ul id="15bbad47-12ab-41ee-8b90-8b0ea2a9a529" class="toggle"><li><details open=""><summary>undue burden</summary><p id="9544af3c-2e58-4b3f-9fda-7a8cd82a854f" class="">undue 不适当的
+burden 负担</p></details></li></ul><ul id="dfe2e1c3-9a7a-45f5-ab50-6706161566bf" class="toggle"><li><details open=""><summary>grab bar(s)</summary><p id="639ba18a-bc52-437e-a342-54b61e628bf4" class="">扶手栏</p></details></li></ul></div></div><hr id="1e5ccfab-199a-4832-86b2-c39455105a4e"/><div id="fc564b36-3f90-4554-8e67-b7dcbd222cde" class="column-list"><div id="96fe09bc-d300-4e90-8d65-a3bbd9495b29" style="width:33.333333333333336%" class="column"><p id="7c26b144-461a-41ce-8397-be355a827e23" class="">The <mark class="highlight-red"><strong>feminist</strong></mark> fight against pay toilets, and a campaign by a student group, the Committee to End Pay toilets in America, led to many states banning pay toilets in the 1970s. <strong>Vandalism and the cost of upkeep shut down many public ones.</strong> Discussions about public toilets assume they are still widely available, according to Taunya Lovell Banks, of the University of Maryland, but “free or low-cost public toilets operated by government have largely disappeared”, and access to toilets in government buildings has been reduced since the Oklahoma City Bombing and 9/11.</p></div><div id="022034b3-d6ad-4f60-9c24-1e5e9fd66bb5" style="width:33.333333333333336%" class="column"><ul id="96521c61-e5ba-4c59-9736-afdc750871d1" class="toggle"><li><details open=""><summary>feminist</summary><p id="89bfc120-0b27-4743-a8a8-fbcff8faa001" class="">a person who believes in feminism, and tries to achieve change that helps women to get equal opportunities and treatment
+女性主义者；女权运动者</p></details></li></ul><p id="e03a5ceb-9947-41c7-931d-3aaf1a9bad1d" class="">
+</p></div><div id="b27d70f0-3af9-44a9-8190-f4472c9ac8ca" style="width:33.33333333333333%" class="column"><ul id="905beeff-8fbc-4d39-9bdd-85db9cc8e320" class="toggle"><li><details open=""><summary>Vandalism and the cost of upkeep shut down many public ones.</summary><p id="edb97651-9891-497c-8dbd-9319d8d713ba" class="">故意破坏行为和维持费用使许多公共场所关闭。</p></details></li></ul></div></div><hr id="025f89d3-5227-4ca5-bd66-1b2a2fb53daa"/><div id="36501102-e9b0-4121-9902-37b2f32437d0" class="column-list"><div id="862b1ccb-eab8-4e9b-9396-29769f4084f3" style="width:33.333333333333336%" class="column"><p id="8f8a95c7-8fc8-4525-a4c3-7def01822ad6" class="">So <strong><mark class="highlight-blue">those caught short</mark></strong> must duck into a local business and awkwardly ask for relief. “Restrooms are for customers only” signs mean it often takes a penny to spend a penny, creating a barrier to the poor. Where public urination is <mark class="highlight-red"><strong>criminalized</strong></mark>, the homeless may have no option but to risk arrest by going in public places. In some states, this can land them on the sex-offender registry. Closures of toilets during covid-19 have only added to the problem.</p></div><div id="697af938-c535-42c0-8381-ac4bbdfcba87" style="width:33.333333333333336%" class="column"><ul id="28f904ae-b51a-4b0c-b983-7733cbb95169" class="toggle"><li><details open=""><summary>criminalize</summary><p id="d6245ab9-7c93-44f6-aa38-440444190bd2" class="">定……为犯罪</p></details></li></ul></div><div id="f537ef00-4330-4f26-ab76-c7ee263f833e" style="width:33.33333333333333%" class="column"><ul id="05082e9c-76f2-446b-81f4-86d4832b8e1f" class="toggle"><li><details open=""><summary>those caught short</summary><p id="156886cd-01cd-49bf-b5d5-3c8a391b2415" class="">手头很紧、贫困</p></details></li></ul></div></div><hr id="a8a0c66a-8268-4bf7-8568-a204937e4a76"/><div id="33984601-c8e0-43c2-93b9-1115478eef72" class="column-list"><div id="bcbb5373-db1a-49b1-86b2-911a49228873" style="width:33.333333333333336%" class="column"><p id="ac2b347c-a57c-410a-998b-2ca0045af961" class="">The lack of accessible toilets has public-health consequences. Holding water for too long can lead to urinary-tract infections, and failure to <mark class="highlight-red"><strong>defecate</strong></mark> can lead to <mark class="highlight-blue"><strong>constipation and hemorrhoids</strong></mark>. This can be difficult for workers who lack easy access to toilets, such as taxi drivers, and disproportionately affects women, who need to go more frequently. No toilets also means no soap. An outbreak of hepatitis A linked to the lack of toilets led to the death of 20 and the hospitalisation of hundreds in San Diego in 2017.</p></div><div id="2c0c08cb-d3ff-4ff1-9d82-0c9a57635f48" style="width:33.333333333333336%" class="column"><ul id="5a041e1b-d9de-4c47-a4e2-e8e186ff1c7b" class="toggle"><li><details open=""><summary>defecate</summary><p id="63310e38-fd55-45e8-9376-e14c182cf316" class="">to pass the contents of the bowels out of the body
+排便</p></details></li></ul></div><div id="7f478dac-5a61-46cb-b484-d42ff058134a" style="width:33.33333333333333%" class="column"><ul id="cf43e05a-1939-49e8-9fd8-443d962dd579" class="toggle"><li><details open=""><summary>constipation and hemorrhoids</summary><p id="7b920189-28f6-4ca7-8355-9764fdde27ca" class="">便秘和痔疮</p></details></li></ul></div></div><p id="0a4ee50d-8ed5-499d-bb4b-585023e2b366" class="">Public toilets are costly to install and maintain, and can attract undesirable behaviour. But spurred on by America’s homelessness crisis, some cities are answering the call. <mark class="highlight-orange"><strong>The right to urinate might not be up there with the right to vote, but having it guaranteed would be a relief.</strong></mark></p><blockquote id="771cd1a6-d037-4af8-9a88-cbe9a1656e20" class="">小便（免费使用厕所）的权利可能不像投票权那么重要，但有了保障就会让人松一口气。</blockquote></div></article></body></html>
